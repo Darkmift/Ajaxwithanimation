@@ -1,7 +1,7 @@
 console.log('js online');
 
 //define a links in navbar
-$('#Home,#Students,#Courses').click(function(e) {
+$('#HomeContent,#Students,#Courses').click(function(e) {
     var container = $('#container').css('height', 0);
     var content;
     //prevent click behaviour or redirect
