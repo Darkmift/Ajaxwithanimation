@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>AjaxThingy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="http://pre11.deviantart.net/3944/th/pre/i/2012/122/6/9/cookie_monster_by_neorame-d4yb0b5.png" />
+  <!--bootstrap-->
+  <!--Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+    </button>
+        <a class="navbar-brand" href="/public/">AjaxStuff</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active">
+            <a href="#" id="Home">Home</a>
+          </li>
+          <li>
+            <a href="#" id="Students">Students</a>
+          </li>
+          <li>
+            <a href="#" id="Courses">Courses</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="container" class="container">
+
+
+  </div>
+
+  <!--Jquery(Bootstrap dependency)-->
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <!--Bootstrap Plugins-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script>
+    var script = document.createElement('script');
+    script.src = "main.js?" + (
+      new Date).getTime();
+    document.getElementsByTagName('head')[0].appendChild(script);
+    ///
+    var x = document.createElement("LINK");
+    x.setAttribute("id", "CssSheet");
+    x.setAttribute("rel", "stylesheet");
+    x.setAttribute("type", "text/css");
+    x.setAttribute("href", "http://aekoenig.rf.gd/public/css/css.css?}" + new Date());
+    document.getElementsByTagName('head')[0].appendChild(x);
+  </script>
+
+</body>
+
+</html>
