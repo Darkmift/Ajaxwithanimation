@@ -1,9 +1,17 @@
 console.log('js online');
-
+btns = $('#HomeContent,#Students,#Courses');
+// btns.parent().addClass("active");
+// btns.parent().toggleClass("active");
 //define a links in navbar
-$('#HomeContent,#Students,#Courses').click(function(e) {
+btns.click(function(e) {
     var container = $('#container').css('height', 0);
     var content;
+    //set active class to proper tab
+    $('[data-toggle=tab]').click(function() {
+        if ($(this).parent().hasClass('active')) {
+            $($(this).attr("href")).toggleClass('active');
+        }
+    });
     //prevent click behaviour or redirect
     e.preventDefault();
     console.log('Link disabled');
