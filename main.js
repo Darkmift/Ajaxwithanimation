@@ -23,12 +23,78 @@ btns.click(function(e) {
         console.log('animation in progress');
         container.stop();
     }
-    container.animate({ height: "600px" }, 1500, "linear");
+    container.animate({
+        height: "600px"
+    }, 1500, "linear");
 
     $.get(thisId + '.html', function(data) {
         container.html(data);
+    }).done(function() {
+        if (thisId == 'Courses') {
+            var jsonCoursesArr;
+            $.get('jsonmaker.php?name=Courses', function(data) {
+                jsonCoursesArr = JSON.parse(data);
+                showCourses(jsonCoursesArr);
+            });
+        }
+        if (thisId == 'Students') {
+            var jsonStudentsArr;
+            $.get('jsonmaker.php?name=Students', function(data) {
+                jsonStudentsArr = JSON.parse(data);
+                showStudents(jsonStudentsArr);
+            });
+        }
     });
 
 });
 
-// $(this).show("slide", { direction: "left" }, 1000);
+var jsonCoursesArr;
+// jsonArr[0].id;
+// jsonArr[0].name;
+// jsonArr[0].description;
+$.get('jsonmaker.php?name=Courses', function(data) {
+    jsonCoursesArr = JSON.parse(data);
+    showCourses(jsonCoursesArr);
+});
+var jsonStudentsArr;
+$.get('jsonmaker.php?name=Students', function(data) {
+    jsonStudentsArr = JSON.parse(data);
+});
+
+function showCourses(jsonCoursesArr) {
+    container = $('#courseUl');
+    for (let index = 0; index < jsonCoursesArr.length; index++) {
+        container.append(
+            $('<ol>').append(
+                $('<img>', {
+                    //image element settings
+                    src: "http://aekoenig.rf.gd/public/../public/images/courses/" + jsonCoursesArr[index].id + ".jpg",
+                    alt: 'course #' + jsonCoursesArr[index].id + 'image',
+                }).addClass('courseImg img-responsive img-circle'),
+                $('<p>').addClass('courseP').text(jsonCoursesArr[index].id + ': ' + jsonCoursesArr[index].name),
+                $('<ul>').append(
+                    $('<li>').append('<b>').text('Start date: ' + jsonCoursesArr[index].start_date + ' until: ' + jsonCoursesArr[index].end_date),
+                    $('<li>').text(jsonCoursesArr[index].description).append($('<hr>'))
+                )
+            )
+        );
+    }
+    return container;
+}
+
+function showStudents(jsonStudentsArr) {
+    container = $('#studentsUl');
+    for (let index = 0; index < jsonStudentsArr.length; index++) {
+        container.append($('<ol>').append(
+            $('<img>', {
+                src: "http://aekoenig.rf.gd/public/../public/images/users/" + jsonStudentsArr[index].id + ".jpg",
+                alt: 'course #' + jsonStudentsArr[index].id + 'image',
+            }).addClass('courseImg img-responsive img-circle').css('border', '2px solid #e8e8e8'),
+            $('<ul>').append(
+                $('<li>').text(jsonStudentsArr[index].id + ': ' + jsonStudentsArr[index].name),
+                $('<li>').text('Email : ' + jsonStudentsArr[index].email),
+            )
+        ));
+    }
+    return container;
+}

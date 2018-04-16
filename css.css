@@ -96,3 +96,15 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.courseImg {
+    display: inline-block;
+    width: 5vw!important;
+    height: 5vh!important;
+    height: auto;
+}
+
+.courseP {
+    margin-left: 5px;
+    display: inline-block;
+}

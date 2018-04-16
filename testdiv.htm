@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>AjaxThingy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/png" href="cm.png" />
+  <!--bootstrap-->
+  <!--Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default ">
+        <div class="panel-heading">
+          Users in DB:
+          <b>12</b>
+        </div>
+        <div class="panel-body">
+          <h4>USERS:</h4>
+          <hr>
+          <br>
+          <div id="userContainer" class="pre-scrollable">
+            <!-- start -->
+            <img src=" http://aekoenig.rf.gd/public/../public/images/users/31.jpg" class="courseImg img-responsive img-thumbnail" alt="user image">
+            <p style="display:inline-block;">
+              1 : alex
+            </p>
+            <br>
+            <!-- end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Jquery(Bootstrap dependency)-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <!--Bootstrap Plugins-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script>
+    var date = new Date().getMilliseconds();
+    var script = document.createElement('script');
+    script.src = "main.js?" + date;
+    document.getElementsByTagName('head')[0].appendChild(script);
+    ///
+    var x = document.createElement("LINK");
+    x.setAttribute("id", "CssSheet");
+    x.setAttribute("rel", "stylesheet");
+    x.setAttribute("type", "text/css");
+    x.setAttribute("href", "css.css?" + date);
+    document.getElementsByTagName('head')[0].appendChild(x);
+  </script>
+</body>
+
+</html>
