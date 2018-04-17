@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: application/json; charset=UTF-8");
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $name = filter_var($_GET['name'], FILTER_SANITIZE_STRING);
     if (isset($name) && ($name == 'Courses' || $name == 'Students')) {

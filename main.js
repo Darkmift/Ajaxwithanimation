@@ -14,7 +14,7 @@ btns.click(function(e) {
     });
     //prevent click behaviour or redirect
     e.preventDefault();
-    console.log('Link disabled');
+    //console.log('Link disabled');
     //assign id of clicked
     var thisId = $(this).attr('id');
     console.log(thisId);
@@ -32,33 +32,26 @@ btns.click(function(e) {
     }).done(function() {
         if (thisId == 'Courses') {
             var jsonCoursesArr;
-            $.get('jsonmaker.php?name=Courses', function(data) {
-                jsonCoursesArr = JSON.parse(data);
-                showCourses(jsonCoursesArr);
-            });
+            $.get("jsonmaker.php", {
+                    name: "Courses"
+                })
+                .done(function(data) {
+                    jsonCoursesArr = data;
+                    showCourses(jsonCoursesArr);
+                });
         }
         if (thisId == 'Students') {
             var jsonStudentsArr;
-            $.get('jsonmaker.php?name=Students', function(data) {
-                jsonStudentsArr = JSON.parse(data);
-                showStudents(jsonStudentsArr);
-            });
+            $.get("jsonmaker.php", {
+                    name: "Students"
+                })
+                .done(function(data) {
+                    jsonStudentsArr = data;
+                    showStudents(jsonStudentsArr);
+                });
         }
     });
 
-});
-
-var jsonCoursesArr;
-// jsonArr[0].id;
-// jsonArr[0].name;
-// jsonArr[0].description;
-$.get('jsonmaker.php?name=Courses', function(data) {
-    jsonCoursesArr = JSON.parse(data);
-    showCourses(jsonCoursesArr);
-});
-var jsonStudentsArr;
-$.get('jsonmaker.php?name=Students', function(data) {
-    jsonStudentsArr = JSON.parse(data);
 });
 
 function showCourses(jsonCoursesArr) {
