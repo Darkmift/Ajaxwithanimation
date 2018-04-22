@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             die("Connection failed: " . $conn->connect_error);
         }
         if ($name == 'Courses') {
-            $sql = "SELECT id, description,name,start_date,end_date,created_by FROM courses";
+            $sql = "SELECT id, description,name,start_date,end_date FROM courses";
         }
         if ($name == 'Students') {
             $sql = "SELECT id, name,email FROM users";
